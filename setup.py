@@ -1,21 +1,25 @@
 #!/usr/bin/env python
 
 import os
+from distutils.util import convert_path
 from setuptools import setup, find_packages
 
 location = os.path.abspath(os.path.dirname(__file__))
 with open('README.md') as readme:
     description = readme.read()
+metadata = dict()
+with open(convert_path('src/telemetryserver/version.py')) as metadata_file:
+    exec(metadata_file.read(), metadata)
 
 
 setup(
     name='telemetryserver',
-    version='0.9.0',
+    version=metadata['__version__'],
 
     description='Simple telemetry server',
     long_description=description,
 
-    url='https://github.com/arcan1s/simple-telemetry-server',
+    url='https://github.com/arcan1s/telemetry-server',
     author='Evgeniy Alekseev',
     author_email='esalexeev@gmail.com',
 
