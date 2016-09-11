@@ -56,9 +56,10 @@ API
     * headers: `Content-Type: application/json`
     * payload should be dictionary or list of dictionary. Each dictionary should
       have the following keys:
-          * `api` - telemetry API version
-          * `type` - telemetry type matches to known names
-          * `metadata` - any metadata inside as json which will be saved to file
+        * `api` - telemetry API version
+        * `type` - telemetry type matches to known names
+        * `metadata` - any metadata inside as json which will be saved to file
+
       Any other keys will be ignored.
     * defined responses:
       ```
