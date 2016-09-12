@@ -59,15 +59,10 @@ class TelemetryServerHandler(BaseHTTPRequestHandler):
             return False
         # work on request
         for single_data in data:
-            # python 2<>3 compatibility
-            try:
-                filename = self.databases[single_data['type']]['filename'].format(
-                    **single_data, **self.databases[single_data['type']])
-            except SyntaxError:
-                keys = self.databases[single_data['type']].copy()
-                keys.update(single_data)
-                filename = self.databases[single_data['type']][
-                    'filename'].format(**keys)
+            keys = self.databases[single_data['type']].copy()
+            keys.update(single_data)
+            filename = self.databases[single_data['type']]['filename'].format(
+                **keys)
             self.__write_single_data(
                 filename, json.dumps(single_data['metadata']))
         return True
