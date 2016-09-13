@@ -13,7 +13,7 @@
 #################################################################################
 
 import logging
-from telemetryserver.telemetryserverhandler import TelemetryServerHandler
+from telemetryserverhandler import TelemetryServerHandler
 # python 2<>3 compatibility
 try:
     import configparser
